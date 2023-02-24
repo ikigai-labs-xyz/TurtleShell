@@ -1,0 +1,55 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'animate.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+
+/* Sponsors */
+
+.Sponsors-Section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsors-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15rem;
+  margin-bottom: 10rem;
+}
+
+.sponsors-text {
+  font-family: 'Oxanium', cursive;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  margin-bottom: 3rem;
+  animation-duration: 2s;
+  animation-name: fadeInUp;
+}
+
+.sponsors-image {
+  align-content: center;
+  text-align: center;
+  animation-duration: 2s;
+  animation-name: fadeInUp;
+  max-width: 100%;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  .sponsors-column {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .sponsors-text {
+    font-size: 40px;
+  }
+}

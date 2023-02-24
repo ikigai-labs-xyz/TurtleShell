@@ -1,0 +1,85 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'animate.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+
+
+.Footer-Section {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     margin-top: 150px;
+        
+    background: linear-gradient(138.84deg, rgba(255, 255, 255, 0.044) -6.39%, rgba(143, 143, 143, 0.021) 112.17%);
+
+    border-top: #FF5A00 1px solid;
+
+    }
+
+    .Footer-Row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem;
+        
+        gap: 5rem;
+
+        animation-duration: 2s;
+        animation-name: fadeIn;
+    }
+
+    .footer-logo {
+
+        animation-duration: 2s;
+        animation-name: fadeInLeft;
+
+        margin-left: 2rem;
+      }
+
+.footer-text{
+    
+    font-family: 'Oxanium', cursive;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+
+    padding-top: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+
+    animation-duration: 2s;
+    animation-name: fadeInUp;
+    }
+
+    .footer-text-small{
+    
+        font-family: 'Oxanium', cursive;
+        text-align: center;
+        font-size: 12px;
+        color: white;
+        margin-top: 1rem;
+    
+        animation-duration: 2s;
+        animation-name: fadeInUp;
+        }
+
+
+    .Links-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+    }
+
+    .Links{
+        margin: 1rem;
+
+        animation-duration: 2s;
+        animation-name: fadeInRight;
+    }
