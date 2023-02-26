@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.css';
-import Logo from '../assets/TurtleShell_Logo_Small.svg';
-import FAQ from '../assets/FAQ.svg';
-import Twitter from '../assets/Twitter.svg';
-import Discord from '../assets/Discord.svg';
+import Logo from '../../../assets/TurtleShell_Logo_Small.svg';
+import FAQ from '../../../assets/FAQ.svg';
+import Twitter from '../../../assets/Twitter.svg';
+import Discord from '../../../assets/Discord.svg';
 
 
 const Footer = () => {
