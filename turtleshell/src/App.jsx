@@ -29,8 +29,8 @@ const App = () => {
      
     ],
 
-    [infuraProvider({ apiKey: '51282d8221e64ba0a0b0e9dd604ea35a'}),
-      publicProvider()]
+    [infuraProvider({ api: process.env.REACT_APP_INFURA_API, network: 'mainnet' }),
+     publicProvider()]
   );
 
   const { connectors } = getDefaultWallets({
