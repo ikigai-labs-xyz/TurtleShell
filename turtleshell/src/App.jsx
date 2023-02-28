@@ -25,11 +25,8 @@ const App = () => {
   const { chains, provider } = configureChains(
     [mainnet,
      goerli,
-     
-     
     ],
-
-    [infuraProvider({ apiKey: ''}),
+    [infuraProvider({ apiKey: import.meta.env.VITE_INFURA_API_KEY}),
       publicProvider()]
   );
 
@@ -43,20 +40,6 @@ const App = () => {
     connectors,
     provider,
   });
-
-  const customTheme = {
-    fonts: {
-      body: `'Oxanium', cursive`,
-    },
-    colors: {
-      connectButtonBackground: "#FF5F08",
-      connectButtonInnerBackground: "hsla(21, 100%, 50%, 0.58)",
-      connectButtonText: "#FF5F08",
-    },
-    radii: {
-      connectButton: "0.375rem",
-    },
-  };
 
   const router = createBrowserRouter([
     {
