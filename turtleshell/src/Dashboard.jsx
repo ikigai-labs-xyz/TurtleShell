@@ -1,21 +1,22 @@
-import React from 'react'
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { Outlet } from "react-router-dom";
+import React from "react";
 import Sidebar from "./dashboard/Sidebar";
+import { Outlet } from "react-router-dom";
+import Header from "./dashboard/Header";
+import { Navigate } from "react-router-dom";
+import { useAccount } from "wagmi";
 
+const Dashboard = () => {
+  
 
-function Dashboard() {
   return (
     <div className="flex">
       <Sidebar />
       <div className="flex-1 m-5">
-      <Outlet />
-        <div className="text-lg wallet-btn">
-            <ConnectButton />
-        </div>
+        <Header />
+        <Outlet />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
