@@ -3,32 +3,44 @@ import logo from '../assets/turtle.svg';
 import open_dapp from '../assets/open-dApp-button.svg';
 import './Navbar.css';
 
+import { mainnet, optimism } from 'wagmi/chains'
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
+import { useAccount, useConnect } from 'wagmi'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 const Navbar = () => {
-return (
-<div className='Navbar'>
 
-    <div className='navbar-row'>
+    const { connector: activeConnector, isConnected } = useAccount()
+    const { connect } = useConnect()
 
-        <div >
-         <img className='navbar-logo'src={logo} alt='Logo'/>
+    const handleConnectAndRedirect = async (event) => {
+        event.preventDefault();
+        try {
+            await connect({ connector: new MetaMaskConnector({ chains: [mainnet, optimism] }) });
+            window.location.href = "/new-audit/choose";
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    return (
+        <div className='Navbar'>
+            <div className='navbar-row'>
+                <div >
+                    <img className='navbar-logo' src={logo} alt='Logo'/>
+                </div>
+                <div className='navbar-text'>
+                    TrutleShell
+                </div>
+            </div>
+            <div>
+                {isConnected && <ConnectButton/>}
+                <button onClick={handleConnectAndRedirect}>
+                    <img className="dApp-button" src={open_dapp} alt='Open dApp' />
+                </button>
+            </div>
         </div>
-
-        <div className='navbar-text'>
-            TrutleShell
-        </div>
-    
-    </div>
-
-    <div>
-        <a href= "/dashboard" >
-        <img className="dApp-button" src={open_dapp} alt='Open dApp' />
-        </a>
-        
-    </div>
-
-</div>
-
-);
+    );
 }
 
 export default Navbar;
