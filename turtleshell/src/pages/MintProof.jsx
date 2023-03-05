@@ -2,23 +2,40 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getImgUrlIpfs } from "../utils.js"
 import BadgeSvg from "../components/BadgeSvg.jsx"
-import { useReward } from 'react-rewards';
-import Button from '../components/Common/Button.jsx';
+import { useReward } from "react-rewards"
+import Button from "../components/Common/Button.jsx"
+import useSignature from "../hooks/useSignature.js"
+// import useMint from "../hooks/useMint.js"
+import abi from "../../abi.json"
+
+import { usePrepareContractWrite, useContractWrite } from "wagmi"
 
 const MintProof = () => {
     const { id, hash, auditDetailsParsed } = useParams()
     const [ipfsUrl, setIpfsUrl] = useState("")
-
     const auditDetails = JSON.parse(auditDetailsParsed)
+    const { reward, isAnimating } = useReward("rewardId", "confetti")
+    const { createSignature, data: signature } = useSignature()
 
-    const [mintSuccess, setMintSuccess] = useState(false);
-    const { reward, isAnimating } = useReward('rewardId', 'confetti');
-  
+    const mintRequest = {
+        to: auditDetails.contractAddr,
+        tokenURI: hash,
+    }
+    const args = [mintRequest, signature]
+
+    const { config } = usePrepareContractWrite({
+        address: "0xeb0c89B065Cf1a498A4B677a04Bb69EBdD641047",
+        abi: abi,
+        functionName: "mint",
+        args,
+    })
+    const { data, isLoading, isSuccess: mintSuccess, write } = useContractWrite(config)
+
     useEffect(() => {
-      if (mintSuccess) {
-        reward();
-      }
-    }, [mintSuccess]);
+        if (mintSuccess) {
+            reward()
+        }
+    }, [mintSuccess])
 
     useEffect(() => {
         if (id && hash) {
@@ -30,6 +47,14 @@ const MintProof = () => {
             console.log(id, hash)
         }
     }, [id, hash])
+
+    useEffect(() => {
+        write?.()
+    }, [signature])
+
+    const initiateMint = async () => {
+        await createSignature(hash, auditDetails.contractAddr)
+    }
 
     return (
         <div className="text-white">
@@ -43,16 +68,24 @@ const MintProof = () => {
                 CONTRACT_ADDRESS={auditDetails.contractAddr}
                 TYPES_VULNERABILITIES={auditDetails.types}
             />
-            <div className='flex items-center justify-center'>
-              {!mintSuccess && <Button onClick={handleCreateSignature}>Mint</Button>}
+            <div className="flex items-center justify-center">
+                {!mintSuccess && <Button onClick={initiateMint}>Mint</Button>}
             </div>
-            {mintSuccess && 
-            <div className="flex items-center justify-center text-white">
-              <h2 className='text-xl relative'>
-                Minted Successfully
-                <span id="rewardId" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)'}}/>
-              </h2>
-            </div>}
+            {mintSuccess && (
+                <div className="flex items-center justify-center text-white">
+                    <h2 className="text-xl relative">
+                        Minted Successfully
+                        <span
+                            id="rewardId"
+                            style={{
+                                position: "absolute",
+                                left: "50%",
+                                transform: "translateX(-50%)",
+                            }}
+                        />
+                    </h2>
+                </div>
+            )}
         </div>
     )
 }
