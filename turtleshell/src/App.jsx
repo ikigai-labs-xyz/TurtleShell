@@ -3,6 +3,8 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import Dashboard from "./Dashboard";
+import AuditLayout from "./layout/AuditLayout";
+import ChooseContracts from "./pages/ChooseContracts";
 
 import "./polyfills";
 import "@rainbow-me/rainbowkit/styles.css";
@@ -47,8 +49,19 @@ const App = () => {
       element: <LandingPage />,
     },
     {
-      path: "/dashboard",
       element: <Dashboard />,
+      children: [
+        {
+          path: "/new-audit",
+          element: <AuditLayout />,
+          children: [
+            {
+              path: "/new-audit/choose",
+              element: <ChooseContracts />,
+            }
+          ]
+        }
+      ]
     }
   ]);
 

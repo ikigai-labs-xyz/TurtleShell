@@ -1,0 +1,302 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'animate.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+
+.choose-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+/*Wait*/
+
+.wait-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+
+    margin-top: 10rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.border-box{
+    background: #D9D9D9;
+}
+
+.loading-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.loading-text{
+    
+    font-family: 'Oxanium';
+    font-size: 36px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    width: 100%;
+    margin: 10px;
+    
+    color: #FFFFFF;
+    
+}
+
+.loading-text-small{
+font-family: 'Oxanium';
+font-size: 20px;
+line-height: 25px;
+color: #FFFFFF;
+margin: 1rem;
+}
+
+.loading-icon {
+    animation: rotating 1.5s linear infinite;
+  }
+
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  /*Steps*/
+  .process-bar
+    {
+        display: flex;
+        flex-direction: row;
+        font-family: 'Oxanium';
+        font-style: normal;
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+
+  .spacing{
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+  }
+  
+.header{
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row-span;
+    justify-content: space-between;
+
+}
+
+.section-text{
+  font-family: 'Oxanium';
+  font-style: normal;
+  font-size: 36px;
+  color: #FFFFFF;
+}
+
+.main-text{
+  font-family: 'Oxanium', cursive;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  margin-bottom: 1rem;
+
+  animation-duration: 2s;
+  animation-name: fadeInUp;
+  }
+
+  .sub-text{
+      font-family: 'Oxanium', cursive;
+      text-align: center;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 1rem;
+
+      animation-duration: 2s;
+      animation-name: fadeInUp;
+      }
+
+  .box{
+        background: rgba(29, 43, 65, 0.75);
+        border-radius: 20px;
+        padding: 2rem;
+        width: 100%;
+  }
+
+
+  .choose-header{
+    font-family: 'Oxanium', cursive;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .choose-subheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Oxanium';
+    font-size: 22px;
+    color: #FFFFFF;
+  }
+
+  /*Permissions*/
+
+  .permission-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    text-align: center;
+
+    background: rgba(29, 43, 65, 0.75);
+        border-radius: 20px;
+  }
+
+  .permission-text-1{
+    font-family: 'Oxanium', cursive;
+    font-size: 25px;
+    color: #AEABD8;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+
+  .permission-subtext-1{
+    font-family: 'Oxanium';
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 0.2rem;
+  }
+
+  .permission-text-2{
+    font-family: 'Oxanium', cursive;
+    font-size: 20px;
+    color: #AEABD8;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+
+  .permission-subtext-2{
+    font-family: 'Oxanium';
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-bottom: 0.2rem;
+  }
+
+  .permission-text-3{
+    font-family: 'Oxanium', cursive;
+    font-size: 22px;
+    color: #AEABD8;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+
+  .permission-subtext-3{
+    font-family: 'Oxanium';
+    font-size: 13px;
+    color: #FFFFFF;
+    margin-bottom: 0.2rem;
+  }
+
+  .align-middle-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    margin: 1rem;
+  }
+  .align-middle-row{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 25rem;
+  }
+
+  /*Audit_Success*/
+
+  .success-header{
+    font-family: 'Oxanium', light;
+    font-size: 35px;
+    color: #FFFFFF;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    align-items: left;
+  }
+
+  .success-h2{
+    font-family: 'Oxanium', light;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    align-items: left;
+  }
+
+  .proof-of-audit{
+    font-family: 'Oxanium', light;
+    font-size: 24px;
+    color: #FF5A00;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    align-items: left;
+  }
+
+  SBT-Badge{
+    position: absolute;}
+  .SBT-text{
+    position: absolute;
+width: 275px;
+height: 172px;
+left: 982px;
+top: 392px;
+
+font-family: 'Oxanium';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 148.99%;
+/* or 18px */
+
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+  }
+
+  .SBT{
+      animation-duration: 2s;
+      animation-name: fadeInUp;
+  }
+
+  .SBT-effect {
+    animation: rotating 1.5s linear infinite;
+  }
+
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
