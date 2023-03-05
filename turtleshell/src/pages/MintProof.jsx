@@ -17,6 +17,8 @@ const MintProof = () => {
     const { reward, isAnimating } = useReward("rewardId", "confetti")
     const { createSignature, data: signature } = useSignature()
 
+    const [sentTx, setSentTx] = useState(false)
+
     const mintRequest = {
         to: auditDetails.contractAddr,
         tokenURI: hash,
@@ -51,7 +53,7 @@ const MintProof = () => {
 
     useEffect(() => {
         write?.()
-    }, [signature])
+    }, [signature, write])
 
     const initiateMint = async () => {
         await createSignature(hash, auditDetails.contractAddr)
