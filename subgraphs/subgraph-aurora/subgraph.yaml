@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+    file: ./schema.graphql
+dataSources:
+    - kind: ethereum
+      name: TurtleShellToken
+      network: aurora-testnet
+      source:
+          address: "0xef9559B8c14d713Df4833992d7664CaE8210c438"
+          abi: TurtleShellToken
+          startBlock: 119020496
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.7
+          language: wasm/assemblyscript
+          entities:
+              - Minted
+          abis:
+              - name: TurtleShellToken
+                file: ./abis/TurtleShellToken.json
+          eventHandlers:
+              - event: Minted(address,uint256)
+                handler: handleMinted
+          file: ./src/turtle-shell-token.ts
