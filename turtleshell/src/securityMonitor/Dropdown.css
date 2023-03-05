@@ -1,0 +1,90 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'animate.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+
+
+/*Dropdown menu*/
+
+
+.dropwdown{display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10rem;
+  text-align: center;
+  align-items: center;
+  background: rgba(29, 43, 65, 0.75);
+  border-radius: 20px;
+  padding: 2rem;
+  user-select: none;
+
+    
+  }
+
+  .dropdown-btn{
+
+
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 148.99%;
+    color: #FFFFFF;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    text-align:  left;
+    width: 13rem;
+    height: 3rem;
+    padding: 1rem;
+    background: #162131;
+    border: 2px solid #FF5F08;
+    border-radius: 10px;
+
+
+
+  }
+  .down-icon{
+    width: 15px;
+
+
+  }
+
+  .dropdown-contnet{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1rem;
+
+
+
+  }
+
+  .dropdown-item{
+
+    animation: fadeInDown 0.3s ease-in-out;
+
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-size: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align:  left;
+    width: 14rem;
+    height: 3rem;
+    padding:1rem;
+    margin: 0.2rem;
+
+    background: #162131;
+    border: 2px solid #FF5F08;
+    border-radius: 10px;
+  }
