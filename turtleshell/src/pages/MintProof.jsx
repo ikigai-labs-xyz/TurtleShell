@@ -33,8 +33,6 @@ const MintProof = () => {
     })
     const { data: txData, isLoading, isSuccess: mintSuccess, write } = useContractWrite(config)
 
-    console.log("tx data", txData)
-
     useEffect(() => {
         if (mintSuccess) {
             reward()
@@ -52,6 +50,7 @@ const MintProof = () => {
     }, [id, hash])
 
     useEffect(() => {
+        if (isLoading) return
         write?.()
     }, [signature, write])
 
@@ -62,15 +61,15 @@ const MintProof = () => {
     return (
         <div className="text-white">
             <div className="flex items-center justify-center flex-col">
-            <h1 className="text-xl tetx-center">Mint Proof</h1>
-              <BadgeSvg
-                  TOKEN_ID={auditDetails.tokenId}
-                  NETWORK="GOERLI"
-                  RISK_LEVEL={auditDetails.riskLevel}
-                  TIMESTAMP={auditDetails.timestamp}
-                  CONTRACT_ADDRESS={auditDetails.contractAddr}
-                  TYPES_VULNERABILITIES={auditDetails.types}
-              />
+                <h1 className="text-xl tetx-center">Mint Proof</h1>
+                <BadgeSvg
+                    TOKEN_ID={auditDetails.tokenId}
+                    NETWORK="GOERLI"
+                    RISK_LEVEL={auditDetails.riskLevel}
+                    TIMESTAMP={auditDetails.timestamp}
+                    CONTRACT_ADDRESS={auditDetails.contractAddr}
+                    TYPES_VULNERABILITIES={auditDetails.types}
+                />
                 {!mintSuccess && <Button onClick={initiateMint}>Mint</Button>}
             </div>
             {mintSuccess && (
