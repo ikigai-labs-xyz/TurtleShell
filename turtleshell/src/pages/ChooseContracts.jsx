@@ -53,7 +53,7 @@ const ChooseContracts = () => {
 
 	return (
 		<div className="">
-			<div className="mt-14 mb-14 ">
+			<div className="mt-9 mb-14 ">
 				<div className="main-text">Choose Smart Contract</div>
 				<div className="sub-text">
 					<p>
@@ -64,7 +64,7 @@ const ChooseContracts = () => {
 
 			<div className="box">
 				<div className="choose-header flex col-auto">
-					<div className="choose-text ml-5 mt-2">deployed Contracts by {address}</div>
+					<div className="choose-text ml-5 mt-2">deployed Contracts by <span className="text-green-500">{address}</span></div>
 				</div>
 				<Table contracts={contracts} />
 			</div>

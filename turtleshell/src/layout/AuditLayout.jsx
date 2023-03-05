@@ -10,7 +10,7 @@ const processSteps = [
   },
   {
       title: 'Initialize Audit',
-      path: '/new-audit/initialize-audit/'
+      path: '/new-audit/initialize-audit/:id'
   },
   {
     title: 'Mint Proof-of-Audit',
@@ -25,12 +25,13 @@ const AuditLayout = () => {
   let location = useLocation();
 
   const isCurrentUrl = (url) => {
-    return location.pathname.includes(url);
+    let formattedUrl = url.split(':id')[0];
+    return location.pathname.includes(formattedUrl);
   }
 
   return (
     <div>
-      <h1 className="header">New Audit</h1>
+      <h1 className="header text-3xl">New Audit</h1>
       <Breadcrumbs list={processSteps} activeItem={processSteps.find(step => step.path && isCurrentUrl(step.path)).title} />
       <div className='mt-14 mb-14'>
           <Outlet />
