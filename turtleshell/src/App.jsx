@@ -5,6 +5,9 @@ import LandingPage from "./LandingPage";
 import Dashboard from "./Dashboard";
 import AuditLayout from "./layout/AuditLayout";
 import ChooseContracts from "./pages/ChooseContracts";
+import MyAudits from "./pages/MyAudits";
+import MintProof from "./pages/MintProof";
+import InitializeAudit from "./pages/InitializeAudit";
 
 import "./polyfills";
 import "@rainbow-me/rainbowkit/styles.css";
@@ -20,6 +23,12 @@ import { mainnet,
 
         import { infuraProvider } from "wagmi/providers/infura";
 import { publicProvider } from "wagmi/providers/public";
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://api.thegraph.com/subgraphs/name/keinberger/turtleshell',
+  cache: new InMemoryCache(),
+});
 
 
 const App = () => {
@@ -58,6 +67,14 @@ const App = () => {
             {
               path: "/new-audit/choose",
               element: <ChooseContracts />,
+            },
+            {
+              path: "/new-audit/initialize-audit/:id",
+              element: <InitializeAudit />,
+            },
+            {
+              path: "/new-audit/mint-proof/:id/:hash",
+              element: <MintProof />
             }
           ]
         }
@@ -78,7 +95,9 @@ const App = () => {
             overlayBlur: "small",
           })}
         >
-          <RouterProvider router={router} />
+          <ApolloProvider client={client}>
+            <RouterProvider router={router} />
+          </ApolloProvider>
         </RainbowKitProvider>
       </WagmiConfig>
     </>
