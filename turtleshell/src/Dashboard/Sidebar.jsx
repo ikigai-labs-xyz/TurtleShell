@@ -12,18 +12,12 @@ import { FiLogOut } from "react-icons/fi";
 import { BsPlusLg } from "react-icons/bs";
 
 const menuItems = [
-  {
-    title: "Dashboard",
-    icon: <RxDashboard />,
-  },
+  
   {
     title: "My Audits",
     icon: <MdSecurity />,
   },
-  {
-    title: "Analytics",
-    icon: <IoAnalyticsOutline />,
-  },
+  
   {
     title: "Account",
     icon: <AiOutlineUser />,
@@ -56,7 +50,7 @@ const Sidebar = () => {
             })}
             <div className="divider border-b border-[#4B4B99]" />
             <li key="new audit">
-              <a className="px-2 py-2 my-2 flex items-center text-orange-500 active:bg-orange-500 focus:bg-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer rounded-md">
+              <a href="/new-audit/choose" className="px-2 py-2 my-2 flex items-center text-orange-500 active:bg-orange-500 focus:bg-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer rounded-md">
                 <BsPlusLg />
                 <div className="ml-2">Create a New Audit</div>
               </a>
