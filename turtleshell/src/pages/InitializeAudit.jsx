@@ -9,6 +9,7 @@ import { GET_ALL_AUDIT_BADGES } from "../graphql/auditBadges"
 import { useLazyQuery } from "@apollo/client"
 import usePinata from "../hooks/usePinata"
 import { useNavigate } from "react-router-dom"
+import { useAccount } from 'wagmi'
 
 const InitializeAudit = () => {
     const { id } = useParams()
@@ -27,6 +28,7 @@ const InitializeAudit = () => {
     } = usePinata()
     const navigate = useNavigate()
     const [auditDetails, setAuditDetails] = useState({})
+    const { address } = useAccount()
 
     const coingeckoUrl = `https://api.coingecko.com/api/v3/coins/`
 
@@ -131,7 +133,7 @@ const InitializeAudit = () => {
                     </div>
                     <div className="my-4">
                         <p>Contract Creator</p>
-                        <p className="text-white">{id}</p>
+                        <p className="text-white">{address}</p>
                     </div>
                     <div className="my-4">
                         <p>Network</p>
