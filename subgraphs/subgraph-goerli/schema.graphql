@@ -1,0 +1,6 @@
+type AuditBadge @entity(immutable: true) {
+	id: Bytes!
+	initiator: Bytes!
+	contractAddress: Bytes!
+	tokenId: BigInt!
+}

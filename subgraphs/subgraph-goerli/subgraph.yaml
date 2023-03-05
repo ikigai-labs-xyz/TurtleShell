@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+    file: ./schema.graphql
+dataSources:
+    - kind: ethereum
+      name: TurtleShellToken
+      network: goerli
+      source:
+          address: "0xeb0c89b065cf1a498a4b677a04bb69ebdd641047"
+          abi: TurtleShellToken
+          startBlock: 8593335
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.7
+          language: wasm/assemblyscript
+          entities:
+              - Minted
+          abis:
+              - name: TurtleShellToken
+                file: ./abis/TurtleShellToken.json
+          eventHandlers:
+              - event: Minted(address,uint256)
+                handler: handleMinted
+          file: ./src/turtle-shell-token.ts

@@ -1,0 +1,8 @@
+{
+	"goerli": {
+		"TurtleShellToken": {
+			"address": "0xeb0c89b065cf1a498a4b677a04bb69ebdd641047",
+			"startBlock": 8593335
+		}
+	}
+}
