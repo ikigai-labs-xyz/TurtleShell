@@ -1,0 +1,15 @@
+{
+  "ContractLevelTokenization": [
+    "pragma solidity =0xNUM.0xNUM; contract comparerequest { uint0xNUM internal balance ;  function transfer () public returns () {balance = balance - amount;} function receive () public returns () {balance = balance + amount;} function sign () public returns (bool null) {} }}}"
+  ],
+  "FunctionLevelTokenization": [
+    "function transfer () public returns () {balance = balance - amount;} contract comparerequest { }",
+    "function receive () public returns () {balance = balance + amount;} contract comparerequest { }",
+    "function sign () public returns (bool null) {} contract comparerequest { }"
+  ],
+  "StatementLevelTokenization": [
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement balance = balance - amount; function transfer () public returns () contract comparerequest { }",
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement balance = balance + amount; function receive () public returns () contract comparerequest { }",
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement  function sign () public returns (bool null) contract comparerequest { }"
+  ]
+}

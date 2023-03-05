@@ -1,0 +1,17 @@
+{
+  "ContractLevelTokenization": [
+    "pragma solidity =0xNUM.0xNUM; contract overflowcontract { uint internal var0xNUM ; uint internal var0xNUM ;  function constructor ()  returns () {var0xNUM = 0xNUM;} function overflowvar0xNUM () public returns () {var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM;} function overflowvar0xNUM () public returns () {var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM;} function overflowboth () public returns () {var0xNUM = 0xNUM; var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM; var0xNUM = var0xNUM - 0xNUM;} }}}"
+  ],
+  "FunctionLevelTokenization": [
+    "function constructor ()  returns () {var0xNUM = 0xNUM;} contract overflowcontract { }",
+    "function overflowvar0xNUM () public returns () {var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM;} contract overflowcontract { }",
+    "function overflowvar0xNUM () public returns () {var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM;} contract overflowcontract { }",
+    "function overflowboth () public returns () {var0xNUM = 0xNUM; var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM; var0xNUM = var0xNUM - 0xNUM;} contract overflowcontract { }"
+  ],
+  "StatementLevelTokenization": [
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement var0xNUM = 0xNUM; function constructor ()  returns () contract overflowcontract { }",
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM; function overflowvar0xNUM () public returns () contract overflowcontract { }",
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM; function overflowvar0xNUM () public returns () contract overflowcontract { }",
+    "sourceunit contractdefinition contractpart functiondefinition block statement simplestatement var0xNUM = 0xNUM; var0xNUM = 0xNUM; var0xNUM = var0xNUM - 0xNUM; var0xNUM = var0xNUM - 0xNUM; function overflowboth () public returns () contract overflowcontract { }"
+  ]
+}
