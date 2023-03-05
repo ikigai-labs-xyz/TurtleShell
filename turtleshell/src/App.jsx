@@ -15,6 +15,8 @@ import { getDefaultWallets, RainbowKitProvider, darkTheme } from "@rainbow-me/ra
 import { configureChains, createClient, WagmiConfig } from "wagmi"
 import { mainnet, goerli } from "wagmi/chains"
 
+
+
 import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
@@ -46,6 +48,7 @@ const App = () => {
             path: "/",
             element: <LandingPage />,
         },
+        
         {
             element: <Dashboard />,
             children: [
