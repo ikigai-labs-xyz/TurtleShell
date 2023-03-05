@@ -1,0 +1,4 @@
+resources/models
+node_modules
+DataProcessService/NodeJsServer/package-lock.json
+*/__pycache__

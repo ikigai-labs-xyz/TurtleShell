@@ -1,0 +1,332 @@
+{
+  "type": "SourceUnit",
+  "children": [
+    {
+      "type": "PragmaDirective",
+      "name": "solidity",
+      "value": "=0.7.0"
+    },
+    {
+      "type": "ContractDefinition",
+      "name": "OverflowContract",
+      "baseContracts": [],
+      "subNodes": [
+        {
+          "type": "StateVariableDeclaration",
+          "variables": [
+            {
+              "type": "VariableDeclaration",
+              "typeName": {
+                "type": "ElementaryTypeName",
+                "name": "uint",
+                "stateMutability": null
+              },
+              "name": "var1",
+              "identifier": {
+                "type": "Identifier",
+                "name": "var1"
+              },
+              "expression": {
+                "type": "NumberLiteral",
+                "number": "0",
+                "subdenomination": null
+              },
+              "visibility": "default",
+              "isStateVar": true,
+              "isDeclaredConst": false,
+              "isIndexed": false,
+              "isImmutable": false,
+              "override": null,
+              "storageLocation": null
+            }
+          ],
+          "initialValue": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+          }
+        },
+        {
+          "type": "StateVariableDeclaration",
+          "variables": [
+            {
+              "type": "VariableDeclaration",
+              "typeName": {
+                "type": "ElementaryTypeName",
+                "name": "uint",
+                "stateMutability": null
+              },
+              "name": "var2",
+              "identifier": {
+                "type": "Identifier",
+                "name": "var2"
+              },
+              "expression": null,
+              "visibility": "default",
+              "isStateVar": true,
+              "isDeclaredConst": false,
+              "isIndexed": false,
+              "isImmutable": false,
+              "override": null,
+              "storageLocation": null
+            }
+          ],
+          "initialValue": null
+        },
+        {
+          "type": "FunctionDefinition",
+          "name": null,
+          "parameters": [],
+          "returnParameters": null,
+          "body": {
+            "type": "Block",
+            "statements": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var2"
+                  },
+                  "right": {
+                    "type": "NumberLiteral",
+                    "number": "0",
+                    "subdenomination": null
+                  }
+                }
+              }
+            ]
+          },
+          "visibility": "default",
+          "modifiers": [],
+          "override": null,
+          "isConstructor": true,
+          "isReceiveEther": false,
+          "isFallback": false,
+          "isVirtual": false,
+          "stateMutability": null
+        },
+        {
+          "type": "FunctionDefinition",
+          "name": "overflowVar1",
+          "parameters": [],
+          "returnParameters": null,
+          "body": {
+            "type": "Block",
+            "statements": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var1"
+                  },
+                  "right": {
+                    "type": "NumberLiteral",
+                    "number": "0",
+                    "subdenomination": null
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var1"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "var1"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "visibility": "public",
+          "modifiers": [],
+          "override": null,
+          "isConstructor": false,
+          "isReceiveEther": false,
+          "isFallback": false,
+          "isVirtual": false,
+          "stateMutability": null
+        },
+        {
+          "type": "FunctionDefinition",
+          "name": "overflowVar2",
+          "parameters": [],
+          "returnParameters": null,
+          "body": {
+            "type": "Block",
+            "statements": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var2"
+                  },
+                  "right": {
+                    "type": "NumberLiteral",
+                    "number": "0",
+                    "subdenomination": null
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var2"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "var2"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "visibility": "public",
+          "modifiers": [],
+          "override": null,
+          "isConstructor": false,
+          "isReceiveEther": false,
+          "isFallback": false,
+          "isVirtual": false,
+          "stateMutability": null
+        },
+        {
+          "type": "FunctionDefinition",
+          "name": "overflowBoth",
+          "parameters": [],
+          "returnParameters": null,
+          "body": {
+            "type": "Block",
+            "statements": [
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var1"
+                  },
+                  "right": {
+                    "type": "NumberLiteral",
+                    "number": "0",
+                    "subdenomination": null
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var2"
+                  },
+                  "right": {
+                    "type": "NumberLiteral",
+                    "number": "0",
+                    "subdenomination": null
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var1"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "var1"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "var2"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "var2"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "visibility": "public",
+          "modifiers": [],
+          "override": null,
+          "isConstructor": false,
+          "isReceiveEther": false,
+          "isFallback": false,
+          "isVirtual": false,
+          "stateMutability": null
+        }
+      ],
+      "kind": "contract"
+    }
+  ]
+}
