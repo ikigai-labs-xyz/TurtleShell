@@ -40,7 +40,7 @@ const InitializeAudit = () => {
 
     useEffect(() => {
         if (auditBadges) {
-            let tokenId = auditBadges.length ? auditBadges.auditBadges.length : 0
+            let tokenId = auditBadges.auditBadges ? auditBadges.auditBadges.length : 0
             const auditDetailsLocal = getAuditDetails(data, tokenId)
             setAuditDetails(auditDetailsLocal)
             console.log("audit", auditDetailsLocal)

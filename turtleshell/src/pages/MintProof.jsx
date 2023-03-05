@@ -29,7 +29,9 @@ const MintProof = () => {
         functionName: "mint",
         args,
     })
-    const { data, isLoading, isSuccess: mintSuccess, write } = useContractWrite(config)
+    const { data: txData, isLoading, isSuccess: mintSuccess, write } = useContractWrite(config)
+
+    console.log("tx data", txData)
 
     useEffect(() => {
         if (mintSuccess) {
@@ -44,7 +46,6 @@ const MintProof = () => {
                 setIpfsUrl(url)
             }
             getImgUrl(hash)
-            console.log(id, hash)
         }
     }, [id, hash])
 
@@ -62,7 +63,7 @@ const MintProof = () => {
             {ipfsUrl ? <img src={ipfsUrl} /> : <p>Loading...</p>}
             <BadgeSvg
                 TOKEN_ID={auditDetails.tokenId}
-                NETWORK_NAME={"GOERLI"}
+                NETWORK="GOERLI"
                 RISK_LEVEL={auditDetails.riskLevel}
                 TIMESTAMP={auditDetails.timestamp}
                 CONTRACT_ADDRESS={auditDetails.contractAddr}
@@ -72,7 +73,7 @@ const MintProof = () => {
                 {!mintSuccess && <Button onClick={initiateMint}>Mint</Button>}
             </div>
             {mintSuccess && (
-                <div className="flex items-center justify-center text-white">
+                <div className="flex items-center justify-center text-white space-y-4 flex-col">
                     <h2 className="text-xl relative">
                         Minted Successfully
                         <span
@@ -84,6 +85,16 @@ const MintProof = () => {
                             }}
                         />
                     </h2>
+                    {txData && (
+                        <h3>
+                            <a
+                                href={`https://goerli.etherscan.io/tx/${txData.hash}`}
+                                target="_blank"
+                            >
+                                View on Explorer
+                            </a>
+                        </h3>
+                    )}
                 </div>
             )}
         </div>
