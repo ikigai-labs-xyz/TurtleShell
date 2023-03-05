@@ -13,7 +13,8 @@ const processSteps = [
       path: '/new-audit/initialize-audit/'
   },
   {
-      title: 'Mint Proof-of-Audit',
+    title: 'Mint Proof-of-Audit',
+    path: '/new-audit/mint-proof',
   },
   {
       title: 'View Full Audit',
