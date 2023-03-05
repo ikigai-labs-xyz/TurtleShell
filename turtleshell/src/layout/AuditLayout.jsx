@@ -30,7 +30,7 @@ const AuditLayout = () => {
 
   return (
     <div>
-      <h1 className="header">New Audit</h1>
+      <h1 className="header text-3xl">New Audit</h1>
       <Breadcrumbs list={processSteps} activeItem={processSteps.find(step => step.path && isCurrentUrl(step.path)).title} />
       <div className='mt-14 mb-14'>
           <Outlet />

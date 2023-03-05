@@ -5,14 +5,13 @@ import clsx from "clsx";
 
 const BreadCrumbItem = ({ children, index, active, ...props }) => {
   const colorsVariants = {
-    default: "ml-2",
     active: "text-orange-500",
     inactive: "text-white",
   };
 
   return (
-  <div className="flex items-center">
-    {index !== 0 && <img src={right} className="ml-2" alt='right' />}
+  <div className="flex items-center mt-4">
+    {index !== 0 && <img src={right} className="mx-2" alt='right' />}
     <div className={clsx({[colorsVariants.active] : active, [colorsVariants.inactive] : !active}, colorsVariants.default)}>{children}</div>
   </div>
   )

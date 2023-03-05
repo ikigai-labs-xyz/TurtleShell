@@ -16,6 +16,8 @@ const InitializeAudit = () => {
     const { chain, chains } = useNetwork()
     const [chainImg, setChainImg] = useState(null)
     const { data, error, loading, fetchMLModel } = useMLModel()
+    const [btnLoading, setBtnLoading] = useState(false);
+
     const [
         getAuditBages,
         { data: auditBadges, error: auditBadgesError, loading: auditBadgesLoading },
@@ -68,6 +70,7 @@ const InitializeAudit = () => {
     }
 
     const startAudit = async () => {
+        setBtnLoading(true);
         // get source code from etherscan
         const returnedSourceCode = await getSourceCodeByAddress(id)
         // call ML model
@@ -124,7 +127,7 @@ const InitializeAudit = () => {
 
     return (
         <div className="text-white text-center">
-            <h1 className="mb-3">Initialize Audit</h1>
+            <h1 className="mb-3 text-2xl">Initialize Audit</h1>
             <Container className="max-w-xl">
                 <div className="flex flex-col items-center text-[#AEABD8] justify-center p-4">
                     <div className="my-4">
@@ -147,7 +150,7 @@ const InitializeAudit = () => {
                 </div>
             </Container>
             <div className="mt-10 flex items-center justify-center">
-                <Button onClick={startAudit}>Start Audit</Button>
+                <Button loading={btnLoading} onClick={startAudit}>Start Audit</Button>
             </div>
         </div>
     )

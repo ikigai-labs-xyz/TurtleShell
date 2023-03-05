@@ -8,10 +8,11 @@ export default function BadgeSvg({
 }) {
     const riskColor = RISK_LEVEL.toLowerCase() === "high" ? "#f70505" : "#00fe47"
     return (
+      <div>
         <svg
             fill="none"
             viewBox="0 0 549 507"
-            className="w-30 h-30"
+            className="h-[500px]"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
         >
@@ -181,6 +182,7 @@ export default function BadgeSvg({
                 </filter>
             </defs>
         </svg>
+      </div>
     )
 }
 
