@@ -10,7 +10,7 @@ const processSteps = [
   },
   {
       title: 'Initialize Audit',
-      path: '/new-audit/initialize-audit/'
+      path: '/new-audit/initialize-audit/:id'
   },
   {
     title: 'Mint Proof-of-Audit',
@@ -25,7 +25,8 @@ const AuditLayout = () => {
   let location = useLocation();
 
   const isCurrentUrl = (url) => {
-    return location.pathname.includes(url);
+    let formattedUrl = url.split(':id')[0];
+    return location.pathname.includes(formattedUrl);
   }
 
   return (
