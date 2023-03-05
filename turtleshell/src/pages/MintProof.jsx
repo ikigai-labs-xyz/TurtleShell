@@ -17,6 +17,8 @@ const MintProof = () => {
     const { reward, isAnimating } = useReward("rewardId", "confetti")
     const { createSignature, data: signature } = useSignature()
 
+    const [sentTx, setSentTx] = useState(false)
+
     const mintRequest = {
         to: auditDetails.contractAddr,
         tokenURI: hash,
@@ -29,7 +31,9 @@ const MintProof = () => {
         functionName: "mint",
         args,
     })
-    const { data, isLoading, isSuccess: mintSuccess, write } = useContractWrite(config)
+    const { data: txData, isLoading, isSuccess: mintSuccess, write } = useContractWrite(config)
+
+    console.log("tx data", txData)
 
     useEffect(() => {
         if (mintSuccess) {
@@ -44,13 +48,12 @@ const MintProof = () => {
                 setIpfsUrl(url)
             }
             getImgUrl(hash)
-            console.log(id, hash)
         }
     }, [id, hash])
 
     useEffect(() => {
         write?.()
-    }, [signature])
+    }, [signature, write])
 
     const initiateMint = async () => {
         await createSignature(hash, auditDetails.contractAddr)
@@ -62,7 +65,7 @@ const MintProof = () => {
             <h1 className="text-xl tetx-center">Mint Proof</h1>
               <BadgeSvg
                   TOKEN_ID={auditDetails.tokenId}
-                  NETWORK_NAME={"GOERLI"}
+                  NETWORK="GOERLI"
                   RISK_LEVEL={auditDetails.riskLevel}
                   TIMESTAMP={auditDetails.timestamp}
                   CONTRACT_ADDRESS={auditDetails.contractAddr}
@@ -71,7 +74,7 @@ const MintProof = () => {
                 {!mintSuccess && <Button onClick={initiateMint}>Mint</Button>}
             </div>
             {mintSuccess && (
-                <div className="flex items-center justify-center text-white">
+                <div className="flex items-center justify-center text-white space-y-4 flex-col">
                     <h2 className="text-xl relative">
                         Minted Successfully
                         <span
@@ -83,6 +86,16 @@ const MintProof = () => {
                             }}
                         />
                     </h2>
+                    {txData && (
+                        <h3>
+                            <a
+                                href={`https://goerli.etherscan.io/tx/${txData.hash}`}
+                                target="_blank"
+                            >
+                                View on Explorer
+                            </a>
+                        </h3>
+                    )}
                 </div>
             )}
         </div>

@@ -6,7 +6,6 @@ export default function BadgeSvg({
     CONTRACT_ADDRESS,
     TYPES_VULNERABILITIES,
 }) {
-    const riskColor = RISK_LEVEL.toLowerCase() === "high" ? "#f70505" : "#00fe47"
     return (
       <div>
         <svg
@@ -80,7 +79,7 @@ export default function BadgeSvg({
                             margin: "auto",
                             "text-align": "center",
                             "font-weight": 600,
-                            color: riskColor,
+                            color: "#00fe47",
                             "font-family": "Oxanium",
                         }}
                     >
